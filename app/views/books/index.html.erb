@@ -28,19 +28,19 @@
       <% @books.each do |book| %>
         <tr>
           <td>
-            <%= link_to book.title, style: "text-decoration: none; color: inherit;" %>
+            <%= link_to book.title, book, style: "text-decoration: none; color: none;" %>
           </td>
           <td><%= book.author %></td>
           <td><%= book.genre %></td>
           <td><%= book.year_of_publication %></td>
           <td><%= link_to "VIEW", book, class: "btn btn-outline-primary btn-sm" %></td>
-          <%# if book.user_id == current_user.id %>
-          <td><%= link_to "UPDATE", edit_book_path(book), class: "btn btn-outline-warning btn-sm" %></td>
-          <td><%= link_to "DELETE", book,  data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger btn-sm" %></td>
-          <%# else %>
-          <td><%= link_to "UPDATE", edit_book_path(book), class: "btn btn-outline-secondary btn-sm", disabled: true, style: "opacity: 0.75; pointer-events: none; cursor: not-allowed; font-size: 0.75rem;" %></td>
-          <td><%= link_to "DELETE", book, method: :delete, class: "btn btn-outline-secondary btn-sm", disabled: true, style: "opacity: 0.75; pointer-events: none; cursor: not-allowed; font-size: 0.75rem;" %></td>
-          <%# end %>
+          <% if book.user_id == current_user.id %>
+            <td><%= link_to "UPDATE", edit_book_path(book), class: "btn btn-outline-warning btn-sm" %></td>
+            <td><%= link_to "DELETE", book,  data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger btn-sm" %></td>
+          <% else %>
+            <td><%= link_to "UPDATE", edit_book_path(book), class: "btn btn-outline-secondary btn-sm", disabled: true, style: "opacity: 0.75; pointer-events: none; cursor: not-allowed; font-size: 0.75rem;" %></td>
+            <td><%= link_to "DELETE", book, method: :delete, class: "btn btn-outline-secondary btn-sm", disabled: true, style: "opacity: 0.75; pointer-events: none; cursor: not-allowed; font-size: 0.75rem;" %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

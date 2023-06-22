@@ -5,9 +5,9 @@
   <%= render @book %>
   <br>
   <div style="display: flex; justify-content: space-between;">
-    <%# if @book.user_id == current_user.id %>
-    <div> <%= link_to "UPDATE", edit_book_path(@book), class:"btn btn-outline-warning", style: "width: 10rem;" %> </div>
-    <div><%= button_to "DELETE", @book, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger", style: "width: 10rem;" %></div>
-    <%# end %>
+    <% if @book.user_id == current_user.id %>
+      <div> <%= link_to "UPDATE", edit_book_path(@book), class:"btn btn-outline-warning", style: "width: 10rem;" %> </div>
+      <div><%= button_to "DELETE", @book, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger", style: "width: 10rem;" %></div>
+    <% end %>
   </div>
 </div>
