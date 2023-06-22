@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @book %>
-
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
-
-  <%= button_to "Destroy this book", @book, method: :delete %>
+<%= link_to "BACK", books_path, class:"btn btn-outline-secondary btn-sm" %>
+<br/>
+<br/>
+<div style="max-width: 25rem; margin-left: auto; margin-right: auto;">
+  <%= render @book %>
+  <br>
+  <div style="display: flex; justify-content: space-between;">
+    <%# if @book.user_id == current_user.id %>
+    <div> <%= link_to "UPDATE", edit_book_path(@book), class:"btn btn-outline-warning", style: "width: 10rem;" %> </div>
+    <div><%= button_to "DELETE", @book, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger", style: "width: 10rem;" %></div>
+    <%# end %>
+  </div>
 </div>
