@@ -4,7 +4,10 @@
 
 ## Project Description
 
-    You are tasked with building a simple book catalog management system using Ruby on Rails. This system should allow users to add, edit, and remove books from the catalog. Each book must have a title, author, genre, and year of publication. Users should be able to browse the catalog, and view detailed information about each book.
+    You are tasked with building a simple book catalog management system using Ruby on Rails. This system should
+    allow users to add, edit, and remove books from the catalog. Each book must have a title, author, genre, and
+    year of publication. Users should be able to browse the catalog, and view detailed information about each 
+    book.
 
 ## Project Requirements
 
@@ -16,8 +19,10 @@
         d. Remove a book from the catalog.
         e. View detailed information about a specific book.
     3. the book catalog must be stored in the database
-    4. the system should perform appropriate validation on book information (e.g., required fields, valid publication year)
-    5. the user interface should be clean and user-friendly. (No need to have a complex UI. we will be mainly focus on the functionality of the system )
+    4. the system should perform appropriate validation on book information (e.g., required fields, valid
+       publication year)
+    5. the user interface should be clean and user-friendly. (No need to have a complex UI. we will be mainly
+       focus on the functionality of the system )
 
 ## Other considerations
 
