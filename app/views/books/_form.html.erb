@@ -1,29 +1,39 @@
 <%= form_with(model: book) do |form| %>
-  <% if book.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
-      <ul>
-        <% book.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="field form-group">
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title, class:"form-control", placeholder:"Enter Title"%>
+    <% if @book.errors[:title].any? %>
+      <div class="error-message" style="color: red; font-size: 0.8rem;">
+        <%= @book.errors[:title].first %>
+      </div>
+    <% end %>
   </div>
   <div class="field form-group">
     <%= form.label :author, style: "display: block" %>
     <%= form.text_field :author, class:"form-control", placeholder:"Enter Author" %>
+    <% if @book.errors[:author].any? %>
+      <div class="error-message" style="color: red; font-size: 0.8rem;">
+        <%= @book.errors[:author].first %>
+      </div>
+    <% end %>
   </div>
   <div class="field form-group">
     <%= form.label :genre, style: "display: block" %>
     <%= form.text_field :genre, class:"form-control", placeholder:"Enter Genre" %>
+    <% if @book.errors[:genre].any? %>
+      <div class="error-message" style="color: red; font-size: 0.8rem;">
+        <%= @book.errors[:genre].first %>
+      </div>
+    <% end %>
   </div>
   <div class="field form-group">
     <%= form.label :year_of_publication, style: "display: block" %>
     <%= form.number_field :year_of_publication, class:"form-control", placeholder:"Enter Year" %>
+    <% if @book.errors[:year_of_publication].any? %>
+      <div class="error-message" style="color: red; font-size: 0.8rem;">
+        <%= @book.errors[:year_of_publication].first %>
+      </div>
+    <% end %>
   </div>
   <div class="field form-group">
     <% form.number_field :user_id, id: :book_user_id, class:"form-control", value: current_user.id, type: :hidden %>
