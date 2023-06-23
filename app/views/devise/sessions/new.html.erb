@@ -10,6 +10,11 @@
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"Enter Password" %>
       </div>
+      <% if flash[:alert] %>
+        <div class="error-message" style="color: red; font-size: 0.8rem;">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
       <br/>
       <div class="actions card text-center">
         <%= f.submit "LOG IN", class:"btn btn-primary" %>
